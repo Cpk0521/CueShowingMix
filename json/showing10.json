@@ -1,0 +1,216 @@
+{
+    "id": 10,
+    "movieurl": "https://cpk0521.github.io/CUE-Showing-Audio-Mixer/Video/showing010.mp4",
+    "soundClip": [
+        {
+            "Time": 3500,
+            "charid": 1,
+            "clipid": "001.wav"
+        },
+        {
+            "Time": 11000,
+            "charid": 2,
+            "clipid": "002.wav"
+        },
+        {
+            "Time": 13500,
+            "charid": 1,
+            "clipid": "003.wav"
+        },
+        {
+            "Time": 16500,
+            "charid": 3,
+            "clipid": "004.wav"
+        },
+        {
+            "Time": 20000,
+            "charid": 4,
+            "clipid": "005.wav"
+        },
+        {
+            "Time": 23300,
+            "charid": 1,
+            "clipid": "006.wav"
+        },
+        {
+            "Time": 29000,
+            "charid": 3,
+            "clipid": "007.wav"
+        },
+        {
+            "Time": 34000,
+            "charid": 4,
+            "clipid": "008.wav"
+        },
+        {
+            "Time": 39000,
+            "charid": 1,
+            "clipid": "009.wav"
+        },
+        {
+            "Time": 46200,
+            "charid": 1,
+            "clipid": "010.wav"
+        },
+        {
+            "Time": 52300,
+            "charid": 2,
+            "clipid": "011.wav"
+        },
+        {
+            "Time": 55700,
+            "charid": 1,
+            "clipid": "012.wav"
+        },
+        {
+            "Time": 59400,
+            "charid": 2,
+            "clipid": "ad001.wav"
+        },
+        {
+            "Time": 68000,
+            "charid": 3,
+            "clipid": "013.wav"
+        },
+        {
+            "Time": 82000,
+            "charid": 1,
+            "clipid": "014.wav"
+        },
+        {
+            "Time": 95600,
+            "charid": 4,
+            "clipid": "015.wav"
+        },
+        {
+            "Time": 102000,
+            "charid": 3,
+            "clipid": "016.wav"
+        },
+        {
+            "Time": 106000,
+            "charid": 1,
+            "clipid": "017.wav"
+        },
+        {
+            "Time": 117000,
+            "charid": 1,
+            "clipid": "018.wav"
+        },
+        {
+            "Time": 119800,
+            "charid": 3,
+            "clipid": "019.wav"
+        },
+        {
+            "Time": 125000,
+            "charid": 4,
+            "clipid": "020.wav"
+        },
+        {
+            "Time": 128000,
+            "charid": 2,
+            "clipid": "021.wav"
+        },
+        {
+            "Time": 137090,
+            "charid": 4,
+            "clipid": "022.wav"
+        },
+        {
+            "Time": 139000,
+            "charid": 3,
+            "clipid": "023.wav"
+        },
+        {
+            "Time": 142380,
+            "charid": 1,
+            "clipid": "024.wav"
+        },
+        {
+            "Time": 156000,
+            "charid": 3,
+            "clipid": "025.wav"
+        },
+        {
+            "Time": 162000,
+            "charid": 1,
+            "clipid": "ad001.wav"
+        },
+        {
+            "Time": 162000,
+            "charid": 2,
+            "clipid": "ad002.wav"
+        },
+        {
+            "Time": 168190,
+            "charid": 4,
+            "clipid": "ad001.wav"
+        },
+        {
+            "Time": 172200,
+            "charid": 4,
+            "clipid": "026.wav"
+        },
+        {
+            "Time": 181000,
+            "charid": 1,
+            "clipid": "027.wav"
+        },
+        {
+            "Time": 188000,
+            "charid": 2,
+            "clipid": "ad003.wav"
+        },
+        {
+            "Time": 190400,
+            "charid": 1,
+            "clipid": "028.wav"
+        },
+        {
+            "Time": 192000,
+            "charid": 2,
+            "clipid": "029.wav"
+        },
+        {
+            "Time": 199000,
+            "charid": 1,
+            "clipid": "030.wav"
+        },
+        {
+            "Time": 201500,
+            "charid": 3,
+            "clipid": "031.wav"
+        },
+        {
+            "Time": 203000,
+            "charid": 4,
+            "clipid": "032.wav"
+        },
+        {
+            "Time": 205000,
+            "charid": 2,
+            "clipid": "033.wav"
+        },
+        {
+            "Time": 217000,
+            "charid": 2,
+            "clipid": "034.wav"
+        },
+        {
+            "Time": 217000,
+            "charid": 1,
+            "clipid": "ad002.wav"
+        },
+        {
+            "Time": 225000,
+            "charid": 2,
+            "clipid": "035.wav"
+        },
+        {
+            "Time": 228000,
+            "charid": 1,
+            "clipid": "036.wav"
+        }
+    ]
+}
