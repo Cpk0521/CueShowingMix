@@ -1,38 +1,41 @@
 const ffmpeg = require('fluent-ffmpeg');
 
-function FFMixer(showingid, Movie, showingclip, char1, char2, char3, char4, output = "output.mp4", Callback = ()=>{}){
+function FFMixer(showingid, showingjson, char1, char2, char3, char4, output = "output.mp4"){
     return new Promise((resolve, reject) => {
-        let command = ffmpeg()
-            .addInput(Movie)
-            .on('progress', Callback)
-            .on('stderr', (stderrLine)=>{
-                console.log(stderrLine);
-            });
-            
-        showingclip.forEach((clip) => {
-            let url = 'https://cpk0521.github.io/CUE-Showing-Audio-Mixer/Voice/Showing_10';
-            let charid;
-                switch (clip.charid) {
-                    case 1:
-                        charid = char1;
-                        break;
-                    case 2:
-                        charid = char2;
-                        break;
-                    case 3:
-                        charid = char3;
-                        break;
-                    case 4:
-                        charid = char4;
-                        break;
-                }
 
-                let clipname = `${url}/${String("00"+ clip.charid).slice(-2)}/char_${String("00"+ charid).slice(-2)}/anime_${String("00"+ charid).slice(-2)}_${String("00"+ showingid).slice(-2)}${String("00"+ clip.charid).slice(-2)}_${clip.clipid}`
-                command.addInput(clipname)
+        let videourl = 'https://cpk0521.github.io/CUE-Showing-Audio-Mixer/Video/';
+        let voiceurl = `https://cpk0521.github.io/CUE-Showing-Audio-Mixer/Voice/Showing_${showingid}`;
+
+        let command = ffmpeg()
+            .addInput(`${videourl}${showingjson.movieurl}`)
+            .on('stderr', (stderrLine)=>{
+                console.log(stderrLine)
+            })
+            
+        showingjson.soundClip.forEach((clip) => {
+            let charid;
+
+            switch (clip.charid) {
+                case 1:
+                    charid = char1;
+                    break;
+                case 2:
+                    charid = char2;
+                    break;
+                case 3:
+                    charid = char3;
+                    break;
+                case 4:
+                    charid = char4;
+                    break;
+            }
+
+            let clipfullname = `${voiceurl}/${String("00"+ clip.charid).slice(-2)}/char_${String("00"+ charid).slice(-2)}/anime_${String("00"+ charid).slice(-2)}_${String("00"+ showingid).slice(-2)}${String("00"+ clip.charid).slice(-2)}_${clip.clipid}`;
+            command.addInput(clipfullname)
         });
         
         const tagFilter = [];
-        const delayFilter = showingclip.map((clip, index) => {
+        const delayFilter = showingjson.soundClip.map((clip, index) => {
             let delaytime = clip.Time;
             let cliptag = `[a${index}]`;
 
@@ -48,8 +51,11 @@ function FFMixer(showingid, Movie, showingclip, char1, char2, char3, char4, outp
             .audioCodec('aac')
             .videoCodec('copy')
             .save(output)
+            .on('end', resolve);
+
     });
 }
+
 
 module.exports = {
     FFMixer

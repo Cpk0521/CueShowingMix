@@ -1,39 +1,51 @@
 const express = require('express');
 const fs = require('fs');
-const { exec } = require('child_process');
+const { endianness } = require('os');
+const FF = require('./ffmpeg');
+// const { exec } = require('child_process');
 
-// var app = express();
-// const PORT = process.env.PORT || 3000;
- 
-// app.get('/', (req, res)=>{
-//     res.sendFile(__dirname + "/index.html");
-// })
+var app = express();
+const PORT = process.env.PORT || 3000;
 
-// app.get('/mixer', (req, res)=>{
+const rawdata = fs.readFileSync('json/showing10.json');
+const jsons = JSON.parse(rawdata);
 
-//     path = "https://cpk0521.github.io/CUE-Showing-Audio-Mixer/Video/showing010.mp4"
-//     ffcomm = 'ffmpeg'
+app.use(express.static('public'));
 
-//     // const obj = JSON.parse(__dirname + "/json/showing10.json");
+app.get('/', (req, res)=>{
+    res.sendFile(__dirname + "/index.html");
+})
 
-//     var output = Date.now() + "output.mp4"
-//     exec(`ffmpeg -i ${path} -c copy ${output}`,  (error, stdout, stderr)=>{
-//         if (error) {
-//             console.log(`error: ${error.message}`);
-//             return;
-//         }else{
-//             res.download(output,(err) => {
-//                 if(err) throw err
-                
-//                 // fs.unlinkSync(req.file.path)
-//                 fs.unlinkSync(output)
-//             })
-//         }
-//         console.log(`stdout: ${stdout}`);
-//         // console.error(`stderr: ${stderr}`);
-//     });
-// })
+app.get('/mixer', (req, res, next)=>{
 
-// app.listen(PORT, ()=>{
-//     console.log(`listening on ${PORT}`);
-// })
+    let output = Date.now() + ".mp4"
+    
+    let sid = req.query.id;
+    let char1 = req.query.char1;
+    let char2 = req.query.char2;
+    let char3 = req.query.char3;
+    let char4 = req.query.char4;
+
+    // res.send(`Composing the Video now, please waiting 1-2 mins`)
+
+    FF.FFMixer(sid, jsons, char1, char2, char3, char4, output).then(()=>{
+        console.log("file is converted");
+
+        res.download(output, (err) => {
+            if(err) console.log(err)
+
+            fs.unlinkSync(output);
+
+            next();
+        });
+
+    }).catch(()=>{
+        console.log('ff error');
+    });
+
+
+})
+
+app.listen(PORT, ()=>{
+    console.log(`listening on ${PORT}`);
+})
