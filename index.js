@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 3000;
 const rawdata = fs.readFileSync('json/showing10.json');
 const jsons = JSON.parse(rawdata);
 
+app.listen(PORT, ()=>{
+    console.log(`listening on ${PORT}`);
+})
+
 app.use(express.static('public'));
 
 app.get('/', (req, res)=>{
@@ -17,6 +21,8 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/mixer', (req, res, next)=>{
+
+    req.setTimeout(500000);
 
     let output = Date.now() + ".mp4"
     
@@ -46,6 +52,4 @@ app.get('/mixer', (req, res, next)=>{
 
 })
 
-app.listen(PORT, ()=>{
-    console.log(`listening on ${PORT}`);
-})
+
