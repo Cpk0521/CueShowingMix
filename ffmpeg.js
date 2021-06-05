@@ -1,6 +1,6 @@
 const ffmpeg = require('fluent-ffmpeg');
 
-function FFMixer(showingid, showingjson, char1, char2, char3, char4, output = "output.mp4"){
+function FFMixer(showingid, showingjson, char1, char2, char3, char4, output = "output.mp4", writeline){
     return new Promise((resolve, reject) => {
 
         let videourl = 'https://cpk0521.github.io/CUE-Showing-Audio-Mixer/Video/';
@@ -9,7 +9,8 @@ function FFMixer(showingid, showingjson, char1, char2, char3, char4, output = "o
         let command = ffmpeg()
             .addInput(`${videourl}${showingjson.movieurl}`)
             .on('stderr', (stderrLine)=>{
-                console.log(stderrLine)
+                writeline(stderrLine)
+                console.log(stderrLine);
             })
             
         showingjson.soundClip.forEach((clip) => {
@@ -55,6 +56,7 @@ function FFMixer(showingid, showingjson, char1, char2, char3, char4, output = "o
 
     });
 }
+
 
 
 module.exports = {
