@@ -58,6 +58,11 @@ app.get('/mixer', (req, res)=>{
         // });
 
     }).catch((err)=>{
+
+        if(fs.existsSync(output)){
+            fs.unlinkSync(output);
+        }
+
         console.log('ff error : ' + err);
     });
 
