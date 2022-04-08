@@ -3,8 +3,8 @@ const ffmpeg = require('fluent-ffmpeg');
 function FFMixer(showingid, showingjson, char1, char2, char3, char4, output = "output.mp4", writeline){
     return new Promise((resolve, reject) => {
 
-        let videourl = 'https://cpk0521.github.io/CUE-Showing-Audio-Resources/Video/';
-        let voiceurl = `https://cpk0521.github.io/CUE-Showing-Audio-Resources/Voice/Showing_${showingid}`;
+        let videourl = 'https://cpk0521.github.io/CUE-Resources/Video/';
+        let voiceurl = `https://cpk0521.github.io/CUE-Resources/Voice/Showing_${showingid}`;
 
         let command = ffmpeg()
             .addInput(`${videourl}${showingjson.movieurl}`)
